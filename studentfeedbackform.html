@@ -1,0 +1,141 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Student Feedback System</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+
+        body {
+            font-family: Arial;
+            background: #f2f2f2;
+        }
+
+        .box {
+            width: 400px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background: darkblue;
+        }
+
+        .feedback {
+            margin-top: 20px;
+            padding: 15px;
+            background: #eee;
+            border-radius: 5px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="box">
+
+        <h2>Student Feedback</h2>
+
+        <input type="text" id="name" placeholder="Enter your name">
+
+        <input type="text" id="teacher" placeholder="Enter teacher name">
+
+        <select id="rating">
+            <option value="">Select Rating</option>
+            <option value="5">5 - Excellent</option>
+            <option value="4">4 - Very Good</option>
+            <option value="3">3 - Good</option>
+            <option value="2">2 - Average</option>
+            <option value="1">1 - Poor</option>
+        </select>
+
+        <textarea id="message" placeholder="Enter your feedback"></textarea>
+
+        <button id="submit">Submit Feedback</button>
+
+        <div id="result"></div>
+
+    </div>
+
+    <script>
+
+        $(document).ready(function() {
+
+            $("#submit").click(function() {
+
+                let name = $("#name").val();
+                let teacher = $("#teacher").val();
+                let rating = $("#rating").val();
+                let message = $("#message").val();
+
+                if (name == "" || teacher == "" || rating == "" || message == "") {
+
+                    alert("Please fill all fields");
+
+                }
+
+                else {
+
+                    $("#result").append(
+
+                        "<div class='feedback'>" +
+
+                        "<b>Student Name:</b> " + name + "<br>" +
+
+                        "<b>Rating Given To:</b> " + teacher + "<br>" +
+
+                        "<b>Rating:</b> " + rating + "<br>" +
+
+                        "<b>Feedback:</b> " + message +
+
+                        "</div>"
+
+                    );
+
+                    $("#name").val("");
+                    $("#teacher").val("");
+                    $("#rating").val("");
+                    $("#message").val("");
+
+                }
+
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>
+```
